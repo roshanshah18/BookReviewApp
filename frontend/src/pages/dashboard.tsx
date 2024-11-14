@@ -8,10 +8,8 @@ export function DashboardPage() {
   return (
    
     <AppShell>
-      
       <CreateBook />
       <ListBooks />
-     
     </AppShell>
     
   );

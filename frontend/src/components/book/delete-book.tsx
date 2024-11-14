@@ -27,8 +27,6 @@ export function DeleteBooks({ bookId }: { bookId: string }) {
       errorToast("Something went wrong");
     }
   };
-
-
   return (
     <>
       <button onClick={deleteBook}>
