@@ -21,12 +21,13 @@ const navigation = [
   { name: "Dashboard", href: "/dashboard", current: false },
   { name: "Login", href: "/login", current: false },
   { name: "Register Account", href: "/register", current: false },
+  { name: "Reviews", href: "/addreview", current: false },
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const location = useLocation();
-  const showFooter = ["/", "/dashboard"].includes(location.pathname);
-
+  const showFooter = ["/", "/dashboard","/addreview"].includes(location.pathname);
+ 
   return (
     <>
       <div className="min-h-screen flex flex-col">

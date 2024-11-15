@@ -6,6 +6,7 @@ import {
   import { RegisterPage } from "./pages/register";
   import { LoginPage } from "./pages/login";
   import { DashboardPage } from "./pages/dashboard";
+import { ReviewPage } from "./pages/review";
   
   const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ import {
     {
       path: "/dashboard",
       element: <DashboardPage />,
+    },
+    {
+      path: "/addreview",
+      element: <ReviewPage />,
     },
   ]);
   

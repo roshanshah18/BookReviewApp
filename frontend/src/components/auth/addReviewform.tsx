@@ -1,7 +1,8 @@
 import { useGetBooksHome } from "../../api/book/query";
-import { HomeReviewBook } from "../review/homeReview";
+import { ReviewBook } from "../review/addReview";
 
-export function Homebooks() {
+
+export function ReviewForm() {
   const { data, isLoading, isError, error } = useGetBooksHome();
 
   if (isLoading) {
@@ -26,10 +27,9 @@ export function Homebooks() {
           <p className="text-gray-700">{book.description}</p>
         </div>
         <div className="flex justify-between items-center mt-auto pt-4 ">
-        
+         
           <button>
-          
-            <HomeReviewBook bookId={book._id}/>
+            <ReviewBook bookId={book._id}/>
           </button>
         </div>
       </div>

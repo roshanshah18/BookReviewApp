@@ -1,8 +1,8 @@
 import { useGetBooksQuery } from "../../api/book/query";
-import { DeleteBooks } from "./delete-book";
-import { UpdateBook } from "./update-book";
+import { UpdateReviewBook } from "./updateReview";
 
-export function ListBooks() {
+
+export function ListReviewsUpdate() {
   const { data, isLoading, isError, error } = useGetBooksQuery();
 
   if (isLoading) {
@@ -20,14 +20,9 @@ export function ListBooks() {
           key={book._id}
           className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
         >
-          <div className="flex text-xl pl-52 gap-2">
-            <button>
-              <UpdateBook book={book} />
-            </button>
-
-            <DeleteBooks bookId={book._id} />
+          <div>
+              <UpdateReviewBook book={book} />
           </div>
-
           <div className="mt-4">
             <p className="font-bold text-lg mb-2">{book.title}</p>
             <p className="text-sm italic mb-1">Author: {book.author}</p>

@@ -65,7 +65,7 @@ export async function updateBook(
   input: TUpdateBookInput
 ): Promise<TUpdateBookOutput> {
   const res = await fetch(`${env.BACKEND_URL}/api/books/${input.bookId}`, {
-    method: "PUT",
+    method: "POST",
     credentials: "include",
     headers: {
       "Content-Type": "application/json",

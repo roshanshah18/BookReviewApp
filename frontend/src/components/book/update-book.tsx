@@ -1,123 +1,95 @@
-// import {  useUpdateBookMutation } from "../../api/book/query";
-// import { errorToast, successToast } from "../toaster";
-// import { MdDelete } from "react-icons/md";
-// import {z} from "zod"
-// import { useState } from "react";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useUpdateBookMutation } from "../../api/book/query"; // Mutation hook for updating the book
+import { errorToast, successToast } from "../toaster";
+import { FiEdit } from "react-icons/fi";
 
-// const updateBookSchema = z.object({
-//     title: z.string().min(1, "Title is required"),
-//     author: z.string().min(1, "Author is required"),
-//     genre: z.string().min(1, "Genre is required"),
-//     description: z.string(),
-//   })
+export function UpdateBook({ book }: { book: { _id: string, title: string, author: string, genre: string, description: string } }) {
+  const updateBookMutation = useUpdateBookMutation();
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState({
+   
+    title: book.title,
+    author: book.author,
+    genre: book.genre,
+    description: book.description,
+  });
 
-//   export function UpdateBook() {
-//     const [open, setOpen] = useState(false);
-  
-//     const openModal = () => {
-//       setOpen(true);
-//     };
-  
-//     const closeModal = () => {
-//       setOpen(false);
-//     };
-  
-//     return (
-//       <div className="max-w-3xl">
-//         <button onClick={openModal} className="bg-[#17191e] text-white rounded-md w-28 ml-4">
-         
-//         </button>
-//         <UpdateBookModal open={open} closeModal={closeModal} />
-//       </div>
-//     );}
+  const updateBook = async () => {
+    try {
+      await updateBookMutation.mutateAsync(
+        {
+          bookId: book._id,
+          ...formData,
+        },
+        {
+          onSuccess(data) {
+            successToast(data.message);
+            setIsEditing(false); 
+          },
+          onError(error) {
+            console.error("error", error);
+            errorToast(error.message);
+          },
+        }
+      );
+    } catch (error) {
+      console.error("error", error);
+      errorToast("Something went wrong");
+    }
+  };
 
-//     export function UpdateBookModal({
-//         open,
-//         closeModal,
-//       }: {
-//         open: boolean;
-//         closeModal: () => void;
-//       }) {
-//         const {
-//           register,
-//           handleSubmit,
-//           reset,
-//           formState: { errors },
-//         } = useForm({
-//           mode: "all",
-//           defaultValues: {
-//             title: "",
-//             author: "",
-//             genre: "",
-//             description: "",
-//           },
-//           resolver: zodResolver(createBookSchema),
-//         });
+  return (
+    <>
+      <button onClick={() => setIsEditing(true)}>
+        <FiEdit />
+      </button>
 
-//         const updateBookMutation= useUpdateBookMutation()
-//   const onSubmit: SubmitHandler<z.infer<typeof updateBookSchema>> = (data) => {
-//     try {
-//       updateBookMutation.mutateAsync(
-//         {
-//         bookId: data.bookId,
-//           title: data.title,
-//           author: data.author,
-//           genre: data.genre,
-//           description:data.description
-//         },
-//         {
-//           onSuccess(data) {
-//             successToast(data.message);
-//             reset();
-            
-//           },
-//           onError(error) {
-//             console.error("error", error);
-//             errorToast(error.message);
-//           },
-//         }
-//       );
-//     } catch (error) {
-//       console.error("error", error);
-//       errorToast("Something went wrong");
-//     }
-//   };
-
-// export function DeleteBooks({ bookId }: { bookId: string }) {
-//   const deleteBookMutation = useBookMutation();
-
-//   const deleteBook = async () => {
-
-//     try {
-//       await deleteBookMutation.mutateAsync(
-//         {
-//           bookId: bookId,
-//         },
-//         {
-//           onSuccess(data) {
-//             successToast(data.message);
-//           },
-//           onError(error) {
-//             console.error("error", error);
-//             errorToast(error.message);
-//           },
-//         }
-//       );
-//     } catch (error) {
-//       console.error("error", error);
-//       errorToast("Something went wrong");
-//     }
-//   };
-
-
-//   return (
-//     <>
-//       <button onClick={deleteBook}>
-//         <MdDelete />
-//       </button>
-//     </>
-//   );
-// }
-//       }
+      {isEditing && (
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg w-80">
+            <h2 className="text-xl mb-4">Edit Book</h2>
+            <label className="block mb-2">Title</label>
+            <input
+              type="text"
+              value={formData.title}
+              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+              className="border rounded-lg w-full p-2 mb-2"
+            />
+            <label className="block mb-2">Author</label>
+            <input
+              type="text"
+              value={formData.author}
+              onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+              className="border rounded-lg w-full p-2 mb-2"
+            />
+            <label className="block mb-2">Genre</label>
+            <input
+              type="text"
+              value={formData.genre}
+              onChange={(e) => setFormData({ ...formData, genre: e.target.value })}
+              className="border rounded-lg w-full p-2 mb-2"
+            />
+            <label className="block mb-2">Description</label>
+            <textarea
+              value={formData.description}
+              onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+              className="border rounded-lg w-full p-2 mb-4"
+            />
+            <button
+              onClick={updateBook}
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2"
+            >
+              Update
+            </button>
+            <button
+              onClick={() => setIsEditing(false)}
+              className="bg-gray-500 text-white px-4 py-2 rounded-lg"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

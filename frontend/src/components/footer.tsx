@@ -14,7 +14,7 @@ const Footer = () => {
              Authors
             </p>
             <p className="underline underline-offset-4">
-             Su
+             Subjects
             </p>
             <p className="underline underline-offset-4">
              Collections
