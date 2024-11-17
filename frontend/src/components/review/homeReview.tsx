@@ -80,7 +80,7 @@ export function HomeReviewBook({
             />
             <button
               onClick={addReview}
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2"
+              className="bg-black text-white px-4 py-2 rounded-lg mr-2"
             >
               Submit
             </button>

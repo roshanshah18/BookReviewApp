@@ -18,7 +18,7 @@ export function ListReviewsUpdate() {
       {data?.data.map((book) => (
         <div
           key={book._id}
-          className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
+          className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 min-h-96"
         >
           <div>
               <UpdateReviewBook book={book} />

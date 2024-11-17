@@ -17,7 +17,7 @@ export function Homebooks() {
     {data?.data.map((book) => (
       <div
         key={book._id}
-        className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between"
+        className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between min-h-96"
       >
         <div>
           <p className="font-bold text-lg mb-2">{book.title}</p>
