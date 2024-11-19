@@ -21,7 +21,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://book-review-cww9nrv25-roshanshah18s-projects.vercel.app/",
     credentials: true,
   })
 );
