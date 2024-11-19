@@ -1,11 +1,10 @@
 import { AppShell } from "../components/app-shell";
-import { ListReviewsUpdate } from "../components/review/listofbookReview";
-
+import { ListBooksReview } from "../components/review/listofbookReview";
 
 export function ReviewPage() {
   return (
     <AppShell>
-      <ListReviewsUpdate/>
+<ListBooksReview/>
     </AppShell>
     
   );

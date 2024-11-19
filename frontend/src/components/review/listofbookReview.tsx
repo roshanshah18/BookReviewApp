@@ -1,8 +1,7 @@
 import { useGetBooksQuery } from "../../api/book/query";
-import { UpdateReviewBook } from "./updateReview";
 
 
-export function ListReviewsUpdate() {
+export function ListBooksReview() {
   const { data, isLoading, isError, error } = useGetBooksQuery();
 
   if (isLoading) {
@@ -19,10 +18,10 @@ export function ListReviewsUpdate() {
         <div
           key={book._id}
           className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 min-h-96"
+         
         >
-          <div>
-              <UpdateReviewBook book={book} />
-          </div>
+       
+
           <div className="mt-4">
             <p className="font-bold text-lg mb-2">{book.title}</p>
             <p className="text-sm italic mb-1">Author: {book.author}</p>

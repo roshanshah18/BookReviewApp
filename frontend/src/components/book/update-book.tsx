@@ -45,8 +45,8 @@ export function UpdateBook({ book }: { book: { _id: string, title: string, autho
       </button>
 
       {isEditing && (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg w-80">
+        <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 ">
+          <div className="bg-white p-6 rounded-lg w-[500px]">
             <h2 className="text-xl mb-4">Edit Book</h2>
             <label className="block mb-2">Title</label>
             <input
@@ -77,7 +77,7 @@ export function UpdateBook({ book }: { book: { _id: string, title: string, autho
             />
             <button
               onClick={updateBook}
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2"
+              className="bg-black text-white px-4 py-2 rounded-lg mr-2"
             >
               Update
             </button>

@@ -103,3 +103,32 @@ export async function updateReviewBook(
 
   return data;
 }
+
+export type TGetBookReviewByIdInput = {
+  bookId: string;
+};
+
+export type TGetBookReviewByIdOutput = {
+  message: string;
+  isSuccess: boolean;
+  data: TReview;
+};
+
+export async function getBookReviewById(
+  input: TGetBookReviewByIdInput
+): Promise<TGetBookReviewByIdOutput> {
+  const res = await fetch(`${env.BACKEND_URL}/api/books/${input.bookId}`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+}

@@ -31,7 +31,7 @@ export function CreateBook() {
   };
 
   return (
-    <div className="max-w-3xl">
+    <div >
       <button onClick={openModal} className="bg-[#17191e] text-white rounded-md w-28 ml-4">
         Create Book
       </button>

@@ -1,15 +1,15 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   addReview,
-  // getReviewById,
-  // TGetReviewByIdInput,
+  getBookReviewById,
+  TGetBookReviewByIdInput,
+  TGetBookReviewByIdOutput,
   TReviewUserInput,
   TReviewUserOutput,
   TUpdateReviewBookInput,
   TUpdateReviewBookOutput,
   updateReviewBook,
 } from "./fetch";
-// import { TGetBookByIdOutput } from "../book/fetch";
 
 export function UseaddReviewBookMutation() {
   const queryClient = useQueryClient();
@@ -21,12 +21,12 @@ export function UseaddReviewBookMutation() {
   });
 }
 
-// export function UseGetReviewByIdQuery(id: string) {
-//   return useQuery<TGetBookByIdOutput, Error, TGetReviewByIdInput>({
-//     queryKey: ["books", id],
-//     queryFn: () => getReviewById({ bookId: id }),
-//   });
-// }
+export function UseGetReviewBookByIdQuery(id: string) {
+  return useQuery<TGetBookReviewByIdOutput, Error, TGetBookReviewByIdInput>({
+    queryKey: ["books", id],
+    queryFn: () => getBookReviewById({ bookId: id }),
+  });
+}
 
 export function useUpdateReviewBookMutation() {
   const queryClient = useQueryClient();
