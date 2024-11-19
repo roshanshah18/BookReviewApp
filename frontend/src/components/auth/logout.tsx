@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../../api/auth/query";
 import { errorToast, successToast } from "../toaster";
 
 export function Logout() {
   const logoutMutation = useLogoutMutation();
+  const navigate = useNavigate()
 
   const handleLogout = () => {
     try {
@@ -10,7 +12,7 @@ export function Logout() {
         {},
         {
           onSuccess: () => {
-            window.location.href = "/login";
+            navigate("/login")
             successToast("Logout successful");
           },
           onError: (error) => {
