@@ -29,6 +29,14 @@ app.use(
   })
 );
 
+app.get("/", (req: Request, res: Response, next: NextFunction) => {
+  res.json({
+    message: "Welcome to Book Review App",
+    data: null,
+    isSuccess: true,
+  });
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/books", bookRouter);
 app.use("/api/review", reviewRouter);
