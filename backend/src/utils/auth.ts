@@ -1,7 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt, { JsonWebTokenError, TokenExpiredError } from "jsonwebtoken";
 import { env } from "./config";
-import { isValid } from "zod";
 
 export type TUserRole = "admin" | "user";
 

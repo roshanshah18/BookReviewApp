@@ -2,7 +2,7 @@ import {
     QueryClient,
     QueryClientProvider as QueryClientProviderRc,
   } from "@tanstack/react-query";
-  import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
   
   const queryClient = new QueryClient();
   
@@ -14,7 +14,6 @@ import {
     return (
       <QueryClientProviderRc client={queryClient}>
         {children}
-        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProviderRc>
     );
   }
