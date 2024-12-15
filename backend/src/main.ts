@@ -24,6 +24,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://book-review-8krvg2uwl-roshanshah18s-projects.vercel.app",
+      "https://www.roshanshah18.com.np",
     ],
     credentials: true,
   })
