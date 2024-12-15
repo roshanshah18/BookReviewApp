@@ -6,48 +6,48 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:flex md:justify-evenly">
           <div className="text-base p-8 hover:cursor-pointer ">
             <h1 className="font-bold  text-xl no-underline">DISCOVER</h1>
-            <p className="underline underline-offset-4">Home</p>
-            <p className="underline underline-offset-4">
+            <p >Home</p>
+            <p >
              Books
             </p>
-            <p className="underline underline-offset-4">
+            <p >
              Authors
             </p>
-            <p className="underline underline-offset-4">
+            <p >
              Subjects
             </p>
-            <p className="underline underline-offset-4">
+            <p >
              Collections
             </p>
           </div>
           <div className="text-base p-8 hover:cursor-pointer">
             <h1 className="font-bold  text-xl">HELP</h1>
-            <p className="underline underline-offset-4">
+            <p >
               Help Center
             </p>
-            <p className="underline underline-offset-4">
+            <p >
               Report a Problem
             </p>
-            <p className="underline underline-offset-4">
+            <p >
               Release Notes
             </p>
-            <p className="underline underline-offset-4">
+            <p >
               Contact
             </p>
           </div>
           <div className="text-base p-8 hover:cursor-pointer ">
             <h1 className="font-bold  text-xl ">STAY CONNECTED</h1>
-            <p className="underline underline-offset-4">Social Media</p>
-            <p className="underline underline-offset-4">Get Mobile App</p>
-            <p className="underline underline-offset-4">Insider Email</p>
+            <p>Social Media</p>
+            <p >Get Mobile App</p>
+            <p >Insider Email</p>
           </div>
         </div>
         <hr className="mt-6 mx-10" />
 
         <div className="flex flex-col items-center p-2 md:flex-row md:justify-around ">
           <div className="flex gap-4 hover:cursor-pointer">
-            <p className="hover:underline underline-offset-4">PrivacyPolicy</p>
-            <p className="hover:underline underline-offset-4">Contact</p>
+            <p >PrivacyPolicy</p>
+            <p >Contact</p>
           </div>
           <div>
             <p className="flex ">
