@@ -23,7 +23,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://book-review-cgdgj0qjf-roshanshah18s-projects.vercel.app",
+      "book-review-bbwwwlmys-roshanshah18s-projects.vercel.app",
     ],
     credentials: true,
   })
